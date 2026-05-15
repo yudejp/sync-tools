@@ -12,6 +12,5 @@ rsync -avz --delete --partial \
     --exclude 'paperless/data' \
     --exclude 'scanopy/db' \
     --exclude 'scanopy/data' \
-	--delete \
 	/mnt/prod/docker/ \
 	root@ttj1pve1.tun.y2e.org:/mnt/store1/docker.nrt1sh1/
