@@ -9,7 +9,8 @@ set -eu
 DEST_HOST=${DEST_HOST:-root@ttj1pve1.tun.y2e.org}
 DEST_BASE_DIR=${DEST_BASE_DIR:-/mnt/store1/pv}
 IGNORE_PVC_PATTERNS=${IGNORE_PVC_PATTERNS:-}
-IGNORE_PVC_PATTERNS='pgdata-za-pg-16-0 pgdata-za-pg-16-1 redis-redis-0'
+IGNORE_PVC_PATTERNS='pgdata-za-pg-16-* redis-redis-* open-webui-data pgadmin-data-pgadmin-* valkey-data-vk2-*'
+TIMESTAMP=$(date +%Y%m%d-%H%M%S)
 TAB=$(printf '\t')
 
 CLAIM_INDEX_FILE=$(mktemp)
@@ -104,7 +105,7 @@ stream_to_remote_dir() {
 	pvc_name=$2
 	namespace=$3
 	storageclass=$4
-	archive_name=$pv_name-$pvc_name-$storageclass.tar.zst
+	archive_name=$pv_name-$pvc_name-$storageclass-$TIMESTAMP.tar.zst
 	remote_script='
 set -eu
 dest_base_dir=$1
