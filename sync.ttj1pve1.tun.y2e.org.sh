@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rsync -avz --partial --delete /mnt/store4/dtv/ root@ttj1pve1.tail5b1c5.ts.net:/mnt/store2/dtv/
+rsync -avz --partial --delete /mnt/store4/dtv/ root@ttj1pve1.tun.y2e.org:/mnt/store2/dtv/
 rsync -avz --delete --partial \
 	--exclude '.git' \
 	--exclude 'dtv-tuner/config/metadata' \
@@ -13,4 +13,4 @@ rsync -avz --delete --partial \
     --exclude 'scanopy/db' \
     --exclude 'scanopy/data' \
 	/mnt/prod/docker/ \
-	root@ttj1pve1.tail5b1c5.ts.net:/mnt/store1/docker.nrt1sh1/
+	root@ttj1pve1.tun.y2e.org:/mnt/store1/docker.nrt1sh1/
